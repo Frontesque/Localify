@@ -1,0 +1,45 @@
+html,body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    color: white;
+    background-color: #121212;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.logo {
+    max-width: 180px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    transition-duration: 0.5s;
+}
+
+a:hover {
+    color: #008CBA;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.listcoverart {
+    width: 35px;
+    border-radius: 3px;
+    margin-right: 10px;
+    margin-top: 15px;
+}
+.titleentry {
+    color:#fff;
+    font-size: 20px;
+}
+.authorentry {
+    color:#888;
+    padding-left:25px;
+    font-size: 20px;
+}

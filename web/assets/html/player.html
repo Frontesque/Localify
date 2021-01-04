@@ -1,0 +1,57 @@
+<style>
+    .LocalifyMediaPlayer {
+        width: 100%;
+        background-color: #282828;
+        padding: 10px;
+        height: 100px;
+        vertical-align: bottom;
+    }
+    .PlayerButton {
+        background-color: rgba(0,0,0,0);
+        border: 0;
+        position: absolute;
+        bottom: 25px;
+    }
+    .Album {
+        width: 80px;
+        height: 80px;
+        border-radius: 5px;
+        display: inline-block;
+    }
+    .TrackInfo {
+        display: inline-block;
+        vertical-align: top;
+        padding-left: 15px;
+    }
+    .progress {
+        width: 0px;
+        height: 2px;
+        background: #1ED6D7;
+        transition: width 0.1s linear;
+        position: absolute;
+        left: 0;
+        bottom: 99px;
+    }
+
+</style>
+
+<div class="LocalifyMediaPlayer">
+    <!--   Style / Design   -->
+
+    <img id="AlbumArt" class="Album" src="web/assets/images/Album.jpg"/>
+    <p id="TrackInfo" class="TrackInfo"></p><br>
+
+
+    <div class="progress" id="progress"></div>
+    <center>
+        <button class="PlayerButton" onclick="play()">
+            <img id="Media_Play" src="web/assets/material.io/play/state1.svg"/>
+        </button>
+    </center>
+
+    <!--   Audio Player Element   -->
+    <audio 
+        id="LocalifyPlayer"
+        autoplay>
+    </audio>
+</div>
