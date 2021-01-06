@@ -1,0 +1,43 @@
+.LocalifyMediaPlayer {
+    width: 100%;
+    background-color: #282828;
+    padding: 10px;
+    height: 100px;
+    vertical-align: bottom;
+}
+.PlayerButton {
+    background-color: rgba(0,0,0,0);
+    border: 0;
+    position: absolute;
+    bottom: 25px;
+}
+.SubButtons_i {
+    width: 35px;
+}
+.SubButtons_b {
+    background-color: rgba(0,0,0,0);
+    border: 0;
+    position: absolute;
+    bottom: 30px;
+}
+
+.Album {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    display: inline-block;
+}
+.TrackInfo {
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 15px;
+}
+.progress {
+    width: 0px;
+    height: 2px;
+    background: #1ED6D7;
+    transition: width 0.1s linear;
+    position: absolute;
+    left: 0;
+    bottom: 99px;
+}

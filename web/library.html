@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="web/assets/css/main.css"/>
         <link rel="stylesheet" href="web/assets/css/columns.css"/>
         <link rel="stylesheet" href="web/assets/css/buttons.css"/>
+        <link rel="stylesheet" href="/web/assets/css/player.css"/>
 	</head>
     
     
@@ -34,14 +35,14 @@
 
                 <hr>
                 <center>
-                    <p>Localify <b>V1.0.0</b></p>
+                    <p>Localify <b>V1.1.4</b></p>
                 </center>
 
             </div>
             
             
             
-            <div class="column" style="background-color: ##121212; width: calc(100% - 210px); overflow-y: scroll;">
+            <div class="column" style="background-color: #121212; width: calc(100% - 210px); overflow-y: scroll;">
                 
                 
                 <!-- Content -->
@@ -55,13 +56,26 @@
             </div>
           </div>
 
-          <!--   Media Player   -->
-          <div w3-include-html="web/assets/html/player.html"></div>
-          <script src="web/assets/js/html_loader.js"></script>
-          <script>includeHTML();</script>
-          <script src="web/assets/js/player.js"></script>
-
-          <script src="web/assets/js/get_media.js"></script>
+        <!--   Media Player   -->
+        <div class="LocalifyMediaPlayer">
+            <img id="AlbumArt" class="Album" src="web/assets/images/Album.jpg"/>
+            <p id="TrackInfo" class="TrackInfo"></p><br>
+        
+            <div class="progress" id="progress"></div>
+            <center>
+                <button class="PlayerButton" onclick="media_play()">
+                    <img id="Media_Play" src="web/assets/material.io/play/state1.svg"/>
+                </button>
+                <button class="SubButtons_b" style="right: calc(50% - 125px)" onclick="media_repeat()">
+                    <img id="Media_Repeat" class="SubButtons_i" src="web/assets/material.io/loop/state0.svg"/>
+                </button>
+            </center>
+        </div>
+        <script src="/web/assets/js/loader.js"></script>
+        <script src="/web/assets/js/player.js"></script>
+        <script src="/web/assets/js/player_functions.js"></script>
+        <script src="/web/assets/js/get_media.js"></script>
+        <!--   EndPlayer   -->
 
 	</body>
 </html>

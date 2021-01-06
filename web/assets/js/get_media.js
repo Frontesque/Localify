@@ -16,21 +16,42 @@ http.onreadystatechange = function() {
 
 
         //---   Res = Media List In Array   ---//
-        res.forEach(element => {
-            var li = document.createElement("li");
+        if (!new URLSearchParams(window.location.search).get("a")) {
+            res.forEach(element => {
+                //---   Show Whole Library   ---//
+                var li = document.createElement("li");
 
-            var text = document.createElement("a")
-            const albumcover = UrlExists(`media/${element.split(".")[0]}.png`) ? `media/${element.split(".")[0]}.png` : "web/assets/images/Album.jpg";
-            text.innerHTML = `<img class="listcoverart" src="${albumcover}"/> ${element.split(".")[0]}`;
+                var text = document.createElement("a")
+                const albumcover = UrlExists(`media/${element.split(".")[0]}.png`) ? `media/${element.split(".")[0]}.png` : "web/assets/images/Album.jpg";
+                text.innerHTML = `<img class="listcoverart" src="${albumcover}"/> ${element.split(".")[0]}`;
 
-            if (text.innerHTML.includes("@")) {
-                text.innerHTML = `<img class="listcoverart" src="${albumcover}"/> ${element.split("@")[0]}<span class="authorentry"> ${element.split("@")[1].split(".")[0]}</span>`;}
-                text.href = `?p=${element}`
+                if (text.innerHTML.includes("@")) {
+                    text.innerHTML = `<img class="listcoverart" src="${albumcover}"/> ${element.split("@")[0]}<span class="authorentry"> ${element.split("@")[1].split(".")[0]}</span>`;}
+                    text.href = `?p=${element}`
 
-            li.appendChild(text);
-            text.className = "titleentry";
-            document.getElementById("media_list").appendChild(li);
-        });
+                li.appendChild(text);
+                text.className = "titleentry";
+                document.getElementById("media_list").appendChild(li);
+            });
+        } else {
+            res.forEach(element => {
+                //---   Show Whole Library   ---//
+                var li = document.createElement("li");
+
+                var text = document.createElement("a")
+                const albumcover = UrlExists(`media/${element.split(".")[0]}.png`) ? `media/${element.split(".")[0]}.png` : "web/assets/images/Album.jpg";
+                text.innerHTML = `<img class="listcoverart" src="${albumcover}"/> ${element.split(".")[0]}`;
+
+                if (text.innerHTML.includes(`@${args.get("a")}`)) {
+                    text.innerHTML = `<img class="listcoverart" src="${albumcover}"/> ${element.split("@")[0]}<span class="authorentry"> ${element.split("@")[1].split(".")[0]}</span>`;
+                    text.href = `?p=${element}`
+
+                    li.appendChild(text);
+                    text.className = "titleentry";
+                    document.getElementById("media_list").appendChild(li);
+                }
+            });
+        }
 
 
 

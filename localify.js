@@ -33,6 +33,10 @@ app.post('/api/media', (req, res) => {
         //---   Make Blank String   ---//
         var media = undefined;
         files.forEach(file => {
+
+
+
+
             //---   Check If File Is Supported   ---//
             const ext = file.split(".");
             if (supported_audio.includes(ext[1])) {
@@ -42,8 +46,22 @@ app.post('/api/media', (req, res) => {
                 } else {
                     media = file
                 }
+
+
+
             } else if (supported_art.includes(ext[1])) {
                 return;
+
+
+
+            } else if (ext[1] == "txt"){
+                if (media) {
+                    media += `,,${file}`
+                } else {
+                    media = file
+                }
+
+
             } else {  
                 console.warn(`Unsupported File Type: '.${ext[1]}' in file '/media/${file}'`)
             }
