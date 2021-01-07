@@ -1,11 +1,17 @@
 //---   Variables   ---//
-web_directory = "./web";
+enable_presence = true;
 supported_audio = ["mp3","wav","ogg"];
 supported_art = ["png"];
+//Only touch these if you know what you're doing:
+web_directory = "./web";
+localify_version = "v1.2.4";
+//---   End Variables   ---//
+
+
 
 //---   Imports   ---
 const express = require('express');
-//const client = require('discord-rich-presence')('791488433604001813');
+const client = require('discord-rich-presence')('791488433604001813');
 const fs = require('fs');
 
 //---   Compile Express (from NPM)   ---
@@ -72,19 +78,41 @@ app.post('/api/media', (req, res) => {
 });
 
 
+//Default Presence
+if (enable_presence) {
+    client.updatePresence({
+        details: 'Browsing media library',
+        state: 'Browsing',
+        largeImageKey: 'album',
+        largeImageText: localify_version,
+        smallImageKey: 'default',
+        smallImageText: 'Browsing',
+        instance: true
+    });
+};
 
-/*
-app.post('/api/media', (req, res) => {
+//Song Presence
+app.post('/api/status/', (req, res) => {
+    if (enable_presence) {
 
-})
+        const status = req.headers.media.split(",,")[0];
+        const note =  req.headers.media.split(",,")[1];
+        const songname = req.headers.media.split(",,")[2];
+        const songauthor = req.headers.media.split(",,")[3].split(".")[0];
+        const seperator = songauthor ? "•" : ""
 
-//---   Presence Shit   ---//
-client.updatePresence({
-  state: 'Browsing Songs',
-  details: 'Browsing Songs',
-  largeImageKey: 'album',
-  largeImageText: 'V1.1.0',
-  smallImageKey: 'favicon',
-  instance: true,
+        client.updatePresence({
+            details: `${songname} ${seperator} ${songauthor}`,
+            state: status,
+            largeImageKey: 'album',
+            largeImageText: localify_version,
+            smallImageKey: note,
+            smallImageText: status,
+            instance: true
+        })
+
+        res.send(true);
+    } else {
+        res.send(false);
+    }
 });
-*/

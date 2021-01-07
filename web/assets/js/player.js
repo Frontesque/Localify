@@ -30,6 +30,7 @@ if (args.get('p').split(".")[1] == "txt"){ //If Live Radio
             player.src = http.response
             player.load();
             info.innerHTML = `${TrackTitle}<br><br><span><a href="/?a=Radio">Live Radio</a></span>`
+            isradio();
         }
     }
 
@@ -42,17 +43,6 @@ if (args.get('p').split(".")[1] == "txt"){ //If Live Radio
 cover.src = AlbumArt
 player.play();
 play.src = "web/assets/material.io/play/state0.svg";
-
-player.addEventListener("playing", function(_event) {
-    play.src = "web/assets/material.io/play/state0.svg";
-    var duration = _event.target.duration;
-    advance(duration, player);
-});
-player.addEventListener("pause", function(_event) {
-    play.src = "web/assets/material.io/play/state1.svg";
-    clearTimeout(timer);
-});
-
 
 //Progress Bar
 var advance = function(duration, element) {
