@@ -23,10 +23,11 @@
                 
                 <!-- Nav -->
                 <hr>
-                <button class="button button1 activelocation" onclick="window.location.replace('/library');">Library</button>
+                <button class="button button1 activelocation" onclick="loadalltracks();">Library</button>
+                <button class="button button1 activelocation" onclick="loadtracksbyauthor('Radio');">Radio</button>
                 <hr>
                 <center>
-                    <p>Localify <b>v1.2.4</b></p>
+                    <p>Localify <b>v1.3.6</b></p>
                 </center>
 
             </div>
@@ -37,7 +38,7 @@
                 
                 
                 <!-- Content -->
-                <h1>Media Library</h1>
+                <h1 id="PageTitle">Media Library</h1>
                 <hr>
                 <ul id="media_list">
 
@@ -61,6 +62,7 @@
                     <img id="Media_Repeat" class="SubButtons_i" src="web/assets/material.io/loop/state0.svg"/>
                 </button>
             </center>
+            <input type="range" min="0" max="100" value="100" class="slider" id="slide" onchange="changeVolume(this.value)">
         </div>
         <script src="/web/assets/js/loader.js"></script>
         <script src="/web/assets/js/player.js"></script>

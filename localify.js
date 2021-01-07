@@ -1,13 +1,11 @@
-//---   Variables   ---//
-enable_presence = true;
-supported_audio = ["mp3","wav","ogg"];
-supported_art = ["png"];
-//Only touch these if you know what you're doing:
-web_directory = "./web";
-localify_version = "v1.2.4";
-//---   End Variables   ---//
-
-
+const {
+    localify_version,
+    enable_presence,
+    server_port,
+    supported_audio,
+    supported_art,
+    web_directory
+} = require("./config.json");
 
 //---   Imports   ---
 const express = require('express');
@@ -22,13 +20,10 @@ app.use('/', express.static("./"));
 console.log("╔═════════════════════════════════╗")
 console.log("║Front's Core.JS            V2.3.2║")
 console.log("╠═════════════════════════════════╝")                 
-app.listen(80, () => console.log("╚  Started @: ", __dirname)); 
+app.listen(server_port, () => console.log("╚  Started @: ", __dirname)); 
 
 //---   Redirect Pages Correctly   ---
 app.get('/', (req, res) => {
-    res.sendFile(`${web_directory}/library.html`, { root: __dirname });
-});
-app.get('/library', (req, res) => {
     res.sendFile(`${web_directory}/library.html`, { root: __dirname });
 });
 

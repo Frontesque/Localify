@@ -55,5 +55,14 @@ function media_repeat() {
 
 function isradio() {
     radio = true;
+
+    repeat.style.display = "none";
+    play.style.display = "none";
+    
     setplaying();
+    player.play();
+}
+
+function changeVolume(level) {
+    player.volume = level/100
 }

@@ -29,7 +29,7 @@ if (args.get('p').split(".")[1] == "txt"){ //If Live Radio
             console.log(http.response)
             player.src = http.response
             player.load();
-            info.innerHTML = `${TrackTitle}<br><br><span><a href="/?a=Radio">Live Radio</a></span>`
+            info.innerHTML = `${TrackTitle}<br><br><span><a href="javascript:loadtracksbyauthor('${TrackAuthor}')">Live Radio</a></span>`
             isradio();
         }
     }
@@ -38,7 +38,7 @@ if (args.get('p').split(".")[1] == "txt"){ //If Live Radio
 } else { //If Regular Music
     player.src = `/media/${args.get('p')}`
     player.load();
-    info.innerHTML = `${TrackTitle}<br><br><span><a href="/?a=${TrackAuthor}">${TrackAuthor}</a></span>`
+    info.innerHTML = `${TrackTitle}<br><br><span><a href="javascript:loadtracksbyauthor('${TrackAuthor}')">${TrackAuthor}</a></span>`
 }
 cover.src = AlbumArt
 player.play();

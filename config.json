@@ -1,0 +1,10 @@
+{
+    "localify_version": "v1.3.6",
+    "enable_presence": true,
+    "server_port": 80,
+
+
+    "supported_audio": ["mp3","wav","ogg"],
+    "supported_art": ["png"],
+    "web_directory": "./web"
+}
